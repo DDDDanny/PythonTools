@@ -33,7 +33,7 @@ class DataInput(object):
 
     def data_save(self):
         if self.Excel is None or self.Excel == '':
-            raise Exception('Excel地址错误！')
+            raise Exception('Excel文件地址错误！')
         data = BaseDataCreate(self.cnt)
         ExcelSave().write_excel(data.create_name(), self.Excel, 1)
         ExcelSave().write_excel(data.create_sex(), self.Excel, 2)

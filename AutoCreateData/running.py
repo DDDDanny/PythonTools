@@ -7,6 +7,6 @@
 from AutoCreateData.excel_save import DataInput
 
 
-num = input('请输入人数：')
-Excel = ''
-DataInput(int(num), Excel).data_save()
+num = int(input('请输入人数：'))
+Excel_File = ''
+DataInput(num, Excel_File).data_save()
