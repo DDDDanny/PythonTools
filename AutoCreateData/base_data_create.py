@@ -28,6 +28,21 @@ class BaseDataCreate(object):
                 res_list.append(res_list_str)
         return res_list
 
+    # 处理生成多条电话
+    def phone_nums(self, demo_list=None, res_list=None):
+        if demo_list is None:
+            raise Exception('demo_list参数错误')
+
+        for i in range(self.cnt):
+            phone_header = random.choice(demo_list)
+            phone = list(phone_header)
+            cnt = len(phone)
+            for j in range(11 - cnt):
+                phone.append(str(random.randint(0, 9)))
+            phone_str = ''.join(phone)
+            res_list.append(phone_str)
+        return res_list
+
     # 生成基础姓名
     def create_name(self):
         # 姓氏
@@ -61,24 +76,13 @@ class BaseDataCreate(object):
         list1 = ['139', '138', '137', '136', '135', '134', '178', '170', '188', '187',
                  '183', '182', '159', '158', '157', '152', '150', '147', '186', '199',
                  '185', '156', '155', '130', '131', '132', '189', '180', '170', '153', '133']
+        list2 = ['9']
 
         phone_str_list = []
         if user_type == 666:
-            for i in range(self.cnt):
-                phone = ['9']
-                for j in range(10):
-                    phone.append(str(random.randint(0, 9)))
-                phone_str = ''.join(phone)
-                phone_str_list.append(phone_str)
+            self.phone_nums(list2, phone_str_list)
         else:
-            for i in range(self.cnt):
-                phone_header = random.choice(list1)
-                phone = list(phone_header)
-                cnt = len(phone)
-                for j in range(11 - cnt):
-                    phone.append(str(random.randint(0, 9)))
-                phone_str = ''.join(phone)
-                phone_str_list.append(phone_str)
+            self.phone_nums(list1, phone_str_list)
         return phone_str_list
 
     # 生成课程信息
@@ -92,7 +96,7 @@ class BaseDataCreate(object):
 # 测试数据
 if __name__ == '__main__':
     exp = BaseDataCreate(5)
-    print(exp.create_phone())
+    print(exp.create_phone(666))
     print(exp.create_name())
     print(exp.create_sex())
     print(exp.create_course())
