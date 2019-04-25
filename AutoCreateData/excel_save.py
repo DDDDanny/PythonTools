@@ -27,9 +27,10 @@ class ExcelSave(object):
 
 
 class DataInput(object):
-    def __init__(self, cnt=1, excel=None):
+    def __init__(self, cnt=1, excel=None, user_type=0):
         self.cnt = cnt
         self.Excel = excel
+        self.type = user_type
 
     def data_save(self):
         if self.Excel is None or self.Excel == '':
@@ -37,5 +38,5 @@ class DataInput(object):
         data = BaseDataCreate(self.cnt)
         ExcelSave().write_excel(data.create_name(), self.Excel, 1)
         ExcelSave().write_excel(data.create_sex(), self.Excel, 2)
-        ExcelSave().write_excel(data.create_phone(), self.Excel, 3)
+        ExcelSave().write_excel(data.create_phone(self.type), self.Excel, 3)
         ExcelSave().write_excel(data.create_course(), self.Excel, 4)
