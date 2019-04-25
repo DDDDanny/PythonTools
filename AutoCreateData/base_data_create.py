@@ -11,6 +11,23 @@ class BaseDataCreate(object):
     def __init__(self, cnt=1):
         self.cnt = cnt
 
+    # 处理生成多条数据
+    def creat_list(self, demo_list1=None, demo_list2=None, res_list=None):
+        if demo_list1 is None and demo_list2 is None or demo_list1 is None:
+            raise Exception('demo_list参数错误')
+
+        if demo_list2 is None:
+            for i in range(self.cnt):
+                res = random.choice(demo_list1)
+                res_list_str = ''.join(res)
+                res_list.append(res_list_str)
+        else:
+            for i in range(self.cnt):
+                res = random.choice(demo_list1) + random.choice(demo_list2)
+                res_list_str = ''.join(res)
+                res_list.append(res_list_str)
+        return res_list
+
     # 生成基础姓名
     def create_name(self):
         # 姓氏
@@ -29,26 +46,20 @@ class BaseDataCreate(object):
                  '均', '锦', '升宇', '度', '瑞', '若男', '阳']
 
         full_name_str_list = []
-        for i in range(self.cnt):
-            full_name = random.choice(list1) + random.choice(list2)
-            full_name_str = ''.join(full_name)
-            full_name_str_list.append(full_name_str)
+        self.creat_list(list1, list2, full_name_str_list)
         return full_name_str_list
 
     # 生成性别
     def create_sex(self):
         sex_list = ['男生', '女生', '待确认']
         sex_str_list = []
-        for i in range(self.cnt):
-            sex = random.choice(sex_list)
-            sex_str = ''.join(sex)
-            sex_str_list.append(sex_str)
+        self.creat_list(sex_list, None, sex_str_list)
         return sex_str_list
 
     # 生成基础电话号码
     def create_phone(self):
         arrow = ['139', '138', '137', '136', '135', '134', '178', '170', '188', '187',
-                 '183', '182', '159', '158', '157', '152', '150', '147', '186',
+                 '183', '182', '159', '158', '157', '152', '150', '147', '186', '199',
                  '185', '156', '155', '130', '131', '132', '189', '180', '170', '153', '133']
 
         phone_str_list = []
@@ -66,16 +77,13 @@ class BaseDataCreate(object):
     def create_course(self):
         course_list = ['语文', '数学', '英语', '物理', '化学']
         course_str_list = []
-        for i in range(self.cnt):
-            course = random.choice(course_list)
-            course_str = ''.join(course)
-            course_str_list.append(course_str)
+        self.creat_list(course_list, None, course_str_list)
         return course_str_list
 
 
 # 测试数据
 if __name__ == '__main__':
-    exp = BaseDataCreate(2000)
+    exp = BaseDataCreate(5)
     print(exp.create_phone())
     print(exp.create_name())
     print(exp.create_sex())
