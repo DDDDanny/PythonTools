@@ -5,6 +5,7 @@
 # @describe: 保存Excel实现类
 
 import xlrd
+import openpyxl
 from xlutils.copy import copy
 
 from AutoCreateData.base_data_create import BaseDataCreate
@@ -14,8 +15,17 @@ class ExcelSave(object):
     def __init__(self):
         pass
 
+    # 删除工作表（暂时不用）
+    @staticmethod
+    def clear_data(excel):
+        work_book = openpyxl.load_workbook(excel)
+        work_book.remove_sheet(work_book.get_sheet_by_name('Sheet1'))
+        work_book.create_sheet('Sheet1', 0)
+        work_book.save(excel)
+
     @staticmethod
     def write_excel(data_list, excel, col):
+        # self.clear_data(excel)
         rb = xlrd.open_workbook(excel)
         wb = copy(rb)
         ws = wb.get_sheet(0)
