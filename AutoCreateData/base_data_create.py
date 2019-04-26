@@ -8,6 +8,9 @@ import random
 
 
 class BaseDataCreate(object):
+    """
+        新字段生成数据逻辑写在这里
+    """
     def __init__(self, cnt=1):
         self.cnt = cnt
 
@@ -24,7 +27,7 @@ class BaseDataCreate(object):
         else:
             for i in range(self.cnt):
                 res = random.choice(demo_list1) + random.choice(demo_list2)
-                res_list_str = ''.join(res)
+                res_list_str = ''.join(res)  # list转字符串
                 res_list.append(res_list_str)
         return res_list
 

@@ -32,6 +32,10 @@ class DataInput(object):
         self.type = user_type
 
     def data_save(self):
+        """
+            添加新字段写在这里：
+                样例：ExcelSave().write_excel(数据, Excel文件地址, 列数)
+        """
         if self.Excel is None or self.Excel == '':
             raise Exception('Excel文件地址错误！')
         data = BaseDataCreate(self.cnt)
