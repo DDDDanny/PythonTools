@@ -1,15 +1,13 @@
 ### AutoCreateData
 ---
 
-* 运行环境
+#### 运行环境  
   Python 3.7
-
-* 依赖包
-    pip install xlrd
-    pip install xlutils
-    pip install openpyxl
-
-* 如何使用
+#### 依赖包  
+    pip install xlrd  
+    pip install xlutils  
+    pip install openpyxl  
+#### 如何使用  
 > 批量生成新增字段数据
 ```python
 class BaseDataCreate(object):
@@ -39,9 +37,9 @@ class DataInput(object):
 3. 输入需要从第几行开始生成数据
 4. 输入Excel文件地址
 
-* 存在缺陷
+#### 存在缺陷
   无法对自动添加的数据进行清空，以至于第一次生成50条数据后，第二次生成20条数据，Excel表中任然有50条数据，新生成的20条数据覆盖了第一次生成50条的前20条数据。
 
-* 后期优化
+#### 后期优化
   当没有找到匹配的文件时，可以自动生成文件
 
