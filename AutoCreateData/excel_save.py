@@ -24,22 +24,23 @@ class ExcelSave(object):
         work_book.save(excel)
 
     @staticmethod
-    def write_excel(data_list, excel, col):
+    def write_excel(data_list, excel, col, row):
         # self.clear_data(excel)
         rb = xlrd.open_workbook(excel)
         wb = copy(rb)
         ws = wb.get_sheet(0)
-        for x, v in enumerate(data_list, 1):
+        for x, v in enumerate(data_list, row):
             y = col
             ws.write(x, y, v)
         wb.save(excel)
 
 
 class DataInput(object):
-    def __init__(self, cnt=1, excel=None, user_type=0):
+    def __init__(self, cnt=1, excel=None, user_type=0, row=0):
         self.cnt = cnt
         self.Excel = excel
         self.type = user_type
+        self.row = row
 
     def data_save(self):
         """
@@ -49,7 +50,7 @@ class DataInput(object):
         if self.Excel is None or self.Excel == '':
             raise Exception('Excel文件地址错误！')
         data = BaseDataCreate(self.cnt)
-        ExcelSave().write_excel(data.create_name(), self.Excel, 1)
-        ExcelSave().write_excel(data.create_sex(), self.Excel, 2)
-        ExcelSave().write_excel(data.create_phone(self.type), self.Excel, 3)
-        ExcelSave().write_excel(data.create_course(), self.Excel, 4)
+        ExcelSave().write_excel(data.create_name(), self.Excel, 1, self.row)
+        ExcelSave().write_excel(data.create_sex(), self.Excel, 2, self.row)
+        ExcelSave().write_excel(data.create_phone(self.type), self.Excel, 3, self.row)
+        ExcelSave().write_excel(data.create_course(), self.Excel, 4, self.row)

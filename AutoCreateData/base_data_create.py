@@ -15,7 +15,7 @@ class BaseDataCreate(object):
         self.cnt = cnt
 
     # 处理生成多条数据
-    def creat_list(self, demo_list1=None, demo_list2=None, res_list=None):
+    def create_list(self, demo_list1=None, demo_list2=None, res_list=None):
         if demo_list1 is None and demo_list2 is None or demo_list1 is None:
             raise Exception('demo_list参数错误')
 
@@ -64,14 +64,14 @@ class BaseDataCreate(object):
                  '均', '锦', '升宇', '度', '瑞', '若男', '阳']
 
         full_name_str_list = []
-        self.creat_list(list1, list2, full_name_str_list)
+        self.create_list(list1, list2, full_name_str_list)
         return full_name_str_list
 
     # 生成性别
     def create_sex(self):
         sex_list = ['男生', '女生', '待确认']
         sex_str_list = []
-        self.creat_list(sex_list, None, sex_str_list)
+        self.create_list(sex_list, None, sex_str_list)
         return sex_str_list
 
     # 生成基础电话号码
@@ -92,7 +92,7 @@ class BaseDataCreate(object):
     def create_course(self):
         course_list = ['语文', '数学', '英语', '物理', '化学']
         course_str_list = []
-        self.creat_list(course_list, None, course_str_list)
+        self.create_list(course_list, None, course_str_list)
         return course_str_list
 
 
