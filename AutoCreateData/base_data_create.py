@@ -14,7 +14,7 @@ class BaseDataCreate(object):
     def __init__(self, cnt=1):
         self.cnt = cnt
 
-    # 处理生成多条数据
+    # 处理生成多条数据(生成字符串类型的list)
     def create_list(self, demo_list1=None, demo_list2=None, res_list=None):
         if demo_list1 is None and demo_list2 is None or demo_list1 is None:
             raise Exception('demo_list参数错误')
@@ -29,6 +29,16 @@ class BaseDataCreate(object):
                 res = random.choice(demo_list1) + random.choice(demo_list2)
                 res_list_str = ''.join(res)  # list转字符串
                 res_list.append(res_list_str)
+        return res_list
+
+    # 处理生成多条数据(生成数字类型的list)
+    def create_num_list(self, demo_list=None, res_list=None):
+        if demo_list is None:
+            raise Exception('demo_list参数错误')
+
+        for i in range(self.cnt):
+            res = random.choice(demo_list)
+            res_list.append(res)
         return res_list
 
     # 处理生成多条电话
