@@ -9,27 +9,28 @@ import json
 
 
 def transformation(json_file, csv_file):
+    # 打开json文件
     json_file = open(json_file, 'r', encoding='utf8')
-    csv_file = open(csv_file, 'w', newline='', encoding='utf8')
-    keys = []
-    writer = csv.writer(csv_file)
 
-    json_data = json_file.read()
-    dic_data = json.loads(json_data, encoding='utf8')
+    # 解析json文件
+    data_list = json.load(json_file)
+    # print(data_list)
 
-    for dic in dic_data:
-        keys = dic.keys()
-        writer.writerow(keys)
-        break
+    # 获取键
+    data = list(data_list.keys())
+    # print(data)
 
-    for dic in dic_data:
-        for key in keys:
-            if key not in dic:
-                dic[key] = ''
-        writer.writerow(dic.values())
+    # 获取值
+    for item in data_list.values():
+        data.append(item)
+        # print(data)
+
+    # 关闭连接
     json_file.close()
-    csv_file.close()
+
+    # csv_file = open(csv_file, 'w', newline='', encoding='utf8')
 
 
 if __name__ == '__main__':
+    # transformation('D://测试/002.json', 'D://测试/001.csv')
     transformation('D://测试/001.json', 'D://测试/001.csv')
