@@ -17,13 +17,18 @@ def transformation(json_file, csv_file):
     # print(data_list)
 
     # 获取键
-    data = list(data_list.keys())
-    # print(data)
+    titles = list(data_list.keys())
+    print(titles)
+
+    data = []
 
     # 获取值
     for item in data_list.values():
         data.append(item)
-        # print(data)
+        print(item)
+
+    titles1 = list(data[0][1].keys())
+    print(titles1)
 
     # 关闭连接
     json_file.close()
@@ -32,5 +37,5 @@ def transformation(json_file, csv_file):
 
 
 if __name__ == '__main__':
-    # transformation('D://测试/002.json', 'D://测试/001.csv')
-    transformation('D://测试/001.json', 'D://测试/001.csv')
+    transformation('D://测试/002.json', 'D://测试/001.csv')
+    # transformation('D://测试/001.json', 'D://测试/001.csv')
