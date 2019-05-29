@@ -7,6 +7,28 @@
 import csv
 import json
 
+"""
+>>>>>>>>>JSON模板<<<<<<<<<<
+
+[
+  {
+    "id": "1001",
+    "name": "人生苦短",
+    "url": "https://www.djangoproject.com/"
+  },
+  {
+    "id": "1002",
+    "name": "我用Python",
+    "url": "https://github.com"
+  },
+  {
+    "id": "1003",
+    "name": "Python是最好的语言",
+    "url": "https://www.python.org/"
+  }
+]
+"""
+
 
 def transformation(json_file, csv_file):
     # 打开json文件
