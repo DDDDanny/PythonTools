@@ -25,10 +25,17 @@ def transformation(json_file, csv_file):
     # 获取值
     for item in data_list.values():
         data.append(item)
-        print(item)
+        # print(item)
+    print(data)
 
-    titles1 = list(data[0][1].keys())
+    titles1 = list(data[0][0].keys())
     print(titles1)
+
+    data1 = []
+    for dic1 in data[0]:
+        for i in dic1.values():
+            data1.append(i)
+    print(data1)
 
     # 关闭连接
     json_file.close()
@@ -37,5 +44,5 @@ def transformation(json_file, csv_file):
 
 
 if __name__ == '__main__':
-    transformation('D://测试/002.json', 'D://测试/001.csv')
-    # transformation('D://测试/001.json', 'D://测试/001.csv')
+    # transformation('D://测试/002.json', 'D://测试/001.csv')
+    transformation('D://测试/001.json', 'D://测试/001.csv')
