@@ -11,36 +11,23 @@ import json
 def transformation(json_file, csv_file):
     # 打开json文件
     json_file = open(json_file, 'r', encoding='utf8')
-
     # 解析json文件
     data_list = json.load(json_file)
-    # print(data_list)
-
     # 获取键
-    titles = list(data_list.keys())
-    print(titles)
-
-    data = []
-
+    titles = data_list[0].keys()
     # 获取值
-    for item in data_list.values():
-        data.append(item)
-        # print(item)
-    print(data)
-
-    titles1 = list(data[0][0].keys())
-    print(titles1)
-
-    data1 = []
-    for dic1 in data[0]:
-        for i in dic1.values():
-            data1.append(i)
-    print(data1)
-
-    # 关闭连接
+    data = [dic.values() for dic in data_list]
+    # 关闭json文件的连接
     json_file.close()
-
-    # csv_file = open(csv_file, 'w', newline='', encoding='utf8')
+    # 打开csv文件，没有则新建
+    csv_file = open(csv_file, 'w', newline='', encoding='utf8')
+    # 创建csv写入器
+    csv_writer = csv.writer(csv_file)
+    # 写入数据
+    csv_writer.writerow(titles)
+    csv_writer.writerows(data)
+    # 关闭csv文件的连接
+    csv_file.close()
 
 
 if __name__ == '__main__':
