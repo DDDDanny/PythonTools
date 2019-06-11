@@ -10,8 +10,8 @@ class CountMoney(object):
         self.num = int(input('请输入购买数量：'))
         self.price = []
         for i in range(self.num):
-            self.price.append(float(input('请按顺序输入价格：')))
-        self.actual_price = float(input('请输入实际支付价格：'))
+            self.price.append(float(input('请按顺序输入原价：')))
+        self.actual_price = float(input('请输入实际支付总价：'))
 
     def calculation(self):
         sum_price = sum(self.price)
