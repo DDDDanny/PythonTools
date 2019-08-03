@@ -29,6 +29,7 @@ class TxtExcel(object):
         with open(self.file, 'r', encoding='UTF-8') as f:
             file_data = f.read()
             regular = r'(#\d\s[^#]+)'
+            # 使用正则表达式匹配
             source_data = re.finditer(regular, file_data)
             f.close()
             return source_data
@@ -65,4 +66,3 @@ if __name__ == '__main__':
     Excel_File = input('请输入存放Excel文件地址：')
     demo = TxtExcel(Txt_File, Excel_File)
     demo.excel_write()
-
