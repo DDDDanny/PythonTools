@@ -11,6 +11,8 @@ Python写的一些小东西🧐
 
 [Count Money][4]  计算下午茶金额
 
+[Txt To Excel][5] Python读取TXT文件并筛选数据导出Excel
+
 [1]:https://github.com/DDDDanny/PythonTools/tree/master/AutoCreateData
 
 [2]:https://github.com/DDDDanny/PythonTools/tree/master/DataTransformation
@@ -18,3 +20,6 @@ Python写的一些小东西🧐
 [3]:https://github.com/DDDDanny/PythonTools/tree/master/HowToChoose
 
 [4]:https://github.com/DDDDanny/PythonTools/tree/master/CountMoney
+
+[5]:https://github.com/DDDDanny/PythonTools/tree/master/TxtToExcel
+
