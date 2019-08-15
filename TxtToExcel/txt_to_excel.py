@@ -28,7 +28,8 @@ class TxtExcel(object):
     def read_txt(self):
         with open(self.file, 'r', encoding='UTF-8') as f:
             file_data = f.read()
-            regular = r'(#\d\s[^#]+)'
+            # regular = r'(#\d\s[^#]+)'
+            regular = r'(#[0-9]+\s[^#]+)'
             # 使用正则表达式匹配
             source_data = re.finditer(regular, file_data)
             f.close()
