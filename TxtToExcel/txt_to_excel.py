@@ -52,10 +52,14 @@ class TxtExcel(object):
             for item in range(len(low)):
                 if item != 0 and item != 2 and item != 3 and item != 4 and item != 5:
                     continue
-                if item == 3:
-                    low[item] = low[item].split('-')[1].split('.')[0]
-                sheet.write(row, i, low[item])
-                i += 1
+                elif item == 3:
+                    sheet.write(row, i, low[item].split('-')[0])
+                    i += 1
+                    sheet.write(row, i, low[item].split('-')[1])
+                    i += 1
+                else:
+                    sheet.write(row, i, low[item])
+                    i += 1
                 print(low[item] + '----数据成功添加')
         book.save(self.excel_path+self.excel_name+'.xls')
         print('--------------------------\n 数据转换完成，已生成Excel表')
