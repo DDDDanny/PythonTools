@@ -4,9 +4,9 @@
 # @File    : run.py
 # @describe: 脚本执行文件
 
-from AccountBook.AccountBookCount.calculated_amount import CalculatedAmount as ca
+from AccountBook.AccountBookCount.calculated_amount import CalculatedAmount
 
 
 file_path = input('请输入InI文件地址：')
 
-print(ca(file_path).calc_data())
+print(CalculatedAmount(file_path).calc_data())
