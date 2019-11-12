@@ -5,7 +5,7 @@
 # @describe: 计算账本金额
 
 
-from AccountBook.AccountBookCount.read_ini import ReadIni
+from AccountBook.read_ini import ReadIni
 
 
 class CalculatedAmount(object):

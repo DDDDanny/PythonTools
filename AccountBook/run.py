@@ -4,7 +4,7 @@
 # @File    : run.py
 # @describe: 脚本执行文件
 
-from AccountBook.AccountBookCount.calculated_amount import CalculatedAmount
+from AccountBook.calculated_amount import CalculatedAmount
 
 
 file_path = input('请输入InI文件地址：')
