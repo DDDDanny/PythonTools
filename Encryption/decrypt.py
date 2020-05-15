@@ -22,6 +22,16 @@ class Decrypt(object):
         # MD5加密后，不可逆
         pass
 
+    # hmac解密
+    def hmac_decrypt(self):
+        # hmac加密后，不可逆
+        pass
+
+    # sha1解密
+    def sha1_decrypt(self):
+        # sha1加密后，不可逆
+        pass
+
 
 if __name__ == '__main__':
     ws = 'V2FpdGluZyBTdHJpbmc='
