@@ -13,6 +13,10 @@ Python写的一些小东西🧐
 
 [Txt To Excel][5] Python读取TXT文件并筛选数据导出Excel
 
+[Account Book][6] Python实现账本
+
+[Encryption][7] Python实现常见的加密算法
+
 [1]:https://github.com/DDDDanny/PythonTools/tree/master/AutoCreateData
 
 [2]:https://github.com/DDDDanny/PythonTools/tree/master/DataTransformation
@@ -23,3 +27,6 @@ Python写的一些小东西🧐
 
 [5]:https://github.com/DDDDanny/PythonTools/tree/master/TxtToExcel
 
+[6]:https://github.com/DDDDanny/PythonTools/tree/master/AccountBook
+
+[7]:https://github.com/DDDDanny/PythonTools/tree/master/Encryption
